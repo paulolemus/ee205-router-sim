@@ -14,7 +14,7 @@ TEST_SINGLE_FILE := $(addprefix tests/, $(addsuffix .cpp, $(TESTCASE)))
 TEST_SINGLE_EXECUTABLE := $(addprefix tests/, $(addsuffix .out, $(TESTCASE)))
 endif
 
-TESTINCLUDEDIR = -I./dep/
+TESTINCLUDEDIR = -I$(TOP_DIR)
 TESTLIBS = -lgtest -lpthread
 
 CXX_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g
