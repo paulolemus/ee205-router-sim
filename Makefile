@@ -25,11 +25,15 @@ CXX_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g
 TEST_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g \
 			  $(TESTINCLUDEDIR) $(TESTLIBS)
 
+
 all: 
 
 
 main-queue: main-queue.cpp
 	g++ main-queue.cpp -o bin/main-queue $(CXX_FLAGS)
+
+
+### TESTCASE BUILD TARGETS
 
 DEP_FOLLOW = ar -rv libgtest.a gtest-all.o
 
@@ -55,6 +59,8 @@ $(TEST_SINGLE_EXECUTABLE): $(TEST_SINGLE_FILE)
 tests/%.out: tests/%.cpp
 	$(CXX) -o $@ $^ $(TEST_FLAGS)
 
+
+### CLEAN RULES
 
 clean-tests:
 	rm tests/*.out
