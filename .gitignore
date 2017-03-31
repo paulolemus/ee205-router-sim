@@ -13,3 +13,6 @@
 !makefile
 !make
 !*/
+
+# Ignore everything in gtest
+dep/gtest/*
