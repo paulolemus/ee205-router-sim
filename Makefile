@@ -26,8 +26,10 @@ TEST_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g \
 			  $(TESTINCLUDEDIR) $(TESTLIBS)
 
 
-all: 
+all: Router
 
+Router: router-sim.cpp
+	g++ router-sim.cpp -o Router $(CXX_FLAGS)
 
 main-queue: main-queue.cpp
 	g++ main-queue.cpp -o bin/main-queue $(CXX_FLAGS)
