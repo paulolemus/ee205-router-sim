@@ -14,8 +14,12 @@ TEST_SINGLE_FILE := $(addprefix tests/, $(addsuffix .cpp, $(TESTCASE)))
 TEST_SINGLE_EXECUTABLE := $(addprefix tests/, $(addsuffix .out, $(TESTCASE)))
 endif
 
+# GoogleTest Stuff
+GTEST_DIR = $(TOP_DIR)/dep/googletest/
+
 TESTINCLUDEDIR = -I$(TOP_DIR)
-TESTLIBS = -lgtest -lpthread
+TESTLIBS =  -lpthread \
+			-isystem $(GTEST_DIR)/include libgtest.a
 
 CXX_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g
 TEST_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g \
@@ -26,6 +30,13 @@ all:
 
 main-queue: main-queue.cpp
 	g++ main-queue.cpp -o bin/main-queue $(CXX_FLAGS)
+
+DEP_FOLLOW = ar -rv libgtest.a gtest-all.o
+
+deps: 
+	g++ -isystem $(GTEST_DIR)/include -I$(GTEST_DIR) \
+	-pthread -c $(GTEST_DIR)/src/gtest-all.cc
+	$(DEP_FOLLOW)
 
 tests: $(TEST_EXECUTABLES)
 
@@ -44,5 +55,9 @@ $(TEST_SINGLE_EXECUTABLE): $(TEST_SINGLE_FILE)
 tests/%.out: tests/%.cpp
 	$(CXX) -o $@ $^ $(TEST_FLAGS)
 
+
 clean-tests:
 	rm tests/*.out
+
+clean: clean-tests
+	rm -r libgtest.a gtest-all.o
