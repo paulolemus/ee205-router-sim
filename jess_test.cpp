@@ -79,7 +79,10 @@ int main() {
 	Packet *current = new Packet; 
 	int timer = 1;
     int arrivals = 20; 
-    int conv = std::stoi(q1b, NULL, 10);
+    int conv = stoi(q1b, NULL, 10);
+    // std::string::size_type sz;   // alias of size_t
+	// int conv = std::stoi (q1b,&sz);
+
     std::srand(std::time(NULL)); //for random numbers
     int lambda1 = rand() % conv +1; 
     cout << "lambda1: " << lambda1 << endl; 

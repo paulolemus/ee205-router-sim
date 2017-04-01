@@ -109,17 +109,18 @@ T Queue<T>::peek() {
     }
     throw std::runtime_error("Peeked on empty queue");
 }
-
 template <typename T>
 void Queue<T>::print() {
     if(head == tail && sz > 0) std::cout << array[head] << std::endl;
     else if(sz > 0) {
-
+        std::cout << "Queue Contents: "; //added this to help clean up a bit
         int index = head;
         for (int i = 0; i < sz; ++i) {
-            std::cout << array[index] << std::endl;
+            // std::cout << array[index] << std::endl;
+            std::cout << array[index] << "\t"; //added this to help clean up a bit
             index = (index + 1) % cap;
         }
+        std::cout << std::endl; //added this to help clean up a bit
     }
 }
 
