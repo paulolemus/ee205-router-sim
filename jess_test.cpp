@@ -23,82 +23,81 @@
 #include <exception>
 #include "Queue.h"
 
+// #include "Config.h"
 using namespace std;
 
 void configSetter (void);
 
 int main() {
-	
-
-    
-    // configSetter();
 	string filename = "config.txt";
 	ifstream infile(filename.c_str());  //constructor automatically opens the file
-
 	if (!infile.is_open()) {
 		cout << "error in opening input file\n";
 		exit(EXIT_FAILURE);
 	}
 
-	//read from file
 	cout << "reading from input file\n";
-	string q1a, q1b, q1p, q1e, Q1, q2p, q2e, Q2, q3p, q3e, Q3;
-	//pulling in variables from file 
-	infile >> q1a; 
+	string q1a, q1b, q1p, q1e, Q1, q2p, q2e, Q2, q3p, q3e, Q3; //declare strings
+	infile >> q1a; //pulling in variables from file 
 	infile >> q1b; 
 	infile >> q1p; 
 	infile >> q1e; 
 	infile >> Q1; 
-	
 	infile >> q2p; 
 	infile >> q2e; 
 	infile >> Q2; 
-	
 	infile >> q3p; 
 	infile >> q3e; 
 	infile >> Q3; 
 
-	cout << "q1a = " << q1a << endl;
-	cout << "q1b = " << q1b << endl;
+	cout << "q1a = " << q1a << endl; //print the variables from config file
+	cout << "q1b = " << q1b << endl; //This should parse out each set of consecutive numbers
 	cout << "q1p = " << q1p << endl;
 	cout << "q1e = " << q1e << endl;
 	cout << "Q1 = " << Q1 << endl << endl;
-	
 	cout << "q2p = " << q2p << endl;
 	cout << "q2e = " << q2e << endl;
 	cout << "Q2 = " << Q2 << endl << endl;
-	
 	cout << "q3p = " << q3p << endl;
 	cout << "q3e = " << q3e << endl;
 	cout << "Q3 = " << Q3 << endl;
-// 		cout << "\n This should parse out each set of consecutive numbers \n\n\n";
-	
-	infile.close();
-	
-	Packet *current = new Packet; 
 
+	
+	infile.close(); //close the file
+	
+	
+    int conv_q1a = stoi(q1a, NULL, 10); //convert strings to ints
+    int conv_q1b = stoi(q1b, NULL, 10);
+    int conv_q1p = stoi(q1p, NULL, 10);
+    int conv_q1e = stoi(q1e, NULL, 10);
+    int conv_q2p = stoi(q2p, NULL, 10);
+    int conv_q2e = stoi(q2e, NULL, 10);
+    
+    int lambda1 = conv_q1b-conv_q1a; //create the input rate and processing times
+    int process_time1 = conv_q1e-conv_q1p;
+    int process_time2 = conv_q2e-conv_q2p;
+    int process_time3 = conv_q3e-conv_q3p;
+
+    cout << "lambda1: " << lambda1 << endl; 
+    cout << "process_time1: " << process_time1 << endl; 
+    cout << "process_time2: " << process_time2 << endl; 
+    cout << "process_time3: " << process_time3 << endl; 
+
+	
 	int timer = 1;
     int arrivals = 20; 
-    int conva = stoi(q1a, NULL, 10);
-    int convb = stoi(q1b, NULL, 10);
-    // std::string::size_type sz;   // alias of size_t
-	// int conv = std::stoi (q1b,&sz);
-
     std::srand(std::time(NULL)); //for random numbers
-    int lambda1 = convb-conva; 
-    cout << "lambda1: " << lambda1 << endl; 
-    
+
+    Packet *current = new Packet; //start the new packet
     current->set_arrival_time(lambda1); 
     cout << current->arrival_time << endl; 
-    // current->set_arrival_number(0);
-    cout << current->arrival_number << endl; 
     
     
     for (timer; arrivals !=0; timer++){
         cout << "arrival count: " << arrivals << "\t\t";
         arrivals --; 
         
-		//enque in Q1
+		//enqueue in Q1
 		
 		
         //after processing send to Q2 or Q3
@@ -123,7 +122,7 @@ int main() {
     std::cout << "arrayQueue size: "     << arrayQueue.size()     << std::endl;
 
     // Completely fill queue
-    // arrayQueue.enqueue(0);
+    // arrayQueue.enqueue(*current);
     // arrayQueue.enqueue(2);
     // arrayQueue.enqueue(3);
     // arrayQueue.enqueue(4);
