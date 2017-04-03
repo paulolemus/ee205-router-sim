@@ -21,7 +21,9 @@ struct Packet {
 
     long int set_arrival_time(int range){
         std::srand(std::time(NULL)); //for random numbers
-        return arrival_time = rand() % range; 
+        arrival_time = rand() % range; 
+        std::cout << "Packet.h: Arrival time is: " << arrival_time << std::endl; 
+        return arrival_time;
     }
     
     int set_process_time(int range){
