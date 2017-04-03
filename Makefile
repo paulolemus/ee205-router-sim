@@ -15,10 +15,10 @@ TEST_SINGLE_EXECUTABLE := $(addprefix tests/, $(addsuffix .out, $(TESTCASE)))
 endif
 
 # GoogleTest Stuff
-GTEST_DIR = $(TOP_DIR)/dep/googletest/
+GTEST_DIR = $(TOP_DIR)/dep/googletest
 
 TESTINCLUDEDIR = -I$(TOP_DIR)
-TESTLIBS =  -lpthread \
+TESTLIBS =  -pthread \
 			-isystem $(GTEST_DIR)/include libgtest.a
 
 CXX_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g
@@ -37,7 +37,7 @@ DEP_FOLLOW = ar -rv libgtest.a gtest-all.o
 
 deps: 
 	g++ -isystem $(GTEST_DIR)/include -I$(GTEST_DIR) \
-	-lpthread -c $(GTEST_DIR)/src/gtest-all.cc
+	-pthread -c $(GTEST_DIR)/src/gtest-all.cc
 	$(DEP_FOLLOW)
 
 tests: $(TEST_EXECUTABLES)
