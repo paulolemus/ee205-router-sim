@@ -66,11 +66,13 @@ tests/%.out: tests/%.cpp
 
 ### CLEAN RULES
 
+clean-build:
+	rm Router
+
 clean-tests:
 	rm tests/*.out
 
 clean-deps:
 	rm -r libgtest.a gtest-all.o
 
-clean: clean-tests clean-deps
-	rm Router
+clean: clean-tests clean-deps clean-build

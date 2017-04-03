@@ -34,23 +34,22 @@ using namespace std;
 
 int main() {
 
-    Config * conf = new Config; 
-    conf->ReadDaFile(); // Config.h reads the config.txt file
-    conf->printConfig(); //checks to see what was pulled from config.txt
+    Config conf("../config.txt");
+    conf.readDataFile(); // Config.h reads the config.txt file
+    conf.printConfig(); //checks to see what was pulled from config.txt
     
-    cout << "lambda1: " << conf->lambda1 << endl; // prints to check the correct times were pulled
-    cout << "process_time1: " << conf->process_time1 << endl; 
-    cout << "process_time2: " << conf->process_time2 << endl; 
-    cout << "process_time3: " << conf->process_time3 << endl << endl; 
+    cout << "lambda1: " << conf.packetDelta() << endl; 
+    cout << "process_time1: " << conf.processTimeQ1() << endl; 
+    cout << "process_time2: " << conf.processTimeQ2() << endl; 
+    cout << "process_time3: " << conf.processTimeQ3() << endl << endl; 
 
 	
 	int timer = 1;
     int arrivals = 20; 
     std::srand(std::time(NULL)); //for random numbers
 
-    Packet *current = new Packet; //start the new packet
-    current->set_arrival_time(conf->lambda1); 
-    cout << current->arrival_time << endl; 
+    Packet current(conf.packetDelta());
+    cout << current.arrival << endl; 
     
     
     for (; arrivals !=0; timer++){
@@ -65,7 +64,7 @@ int main() {
         if (nextQueue == 0){
         	cout << "Sending packet to Q2" << endl;
         }
-        if (nextQueue == 1){
+        else if (nextQueue == 1){
         	cout << "Sending packet to Q3" << endl;
         }
     }
