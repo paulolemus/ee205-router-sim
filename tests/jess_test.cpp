@@ -16,13 +16,13 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
-#include "Packet.h"
+#include "../Packet.h"
 
 //queue stuff
 #include <stdexcept> //had to add this for runtime and other random things that wouldn't compile
 #include <exception>
-#include "Queue.h"
-#include "Config.h"
+#include "../Queue.h"
+#include "../Config.h"
 
 // #include "Config.h"
 using namespace std;
@@ -65,6 +65,7 @@ int main() {
         	cout << "Sending packet to Q3" << endl;
         }
     }
+    std::cout << "----Time of full process " << timer << " sec ----" <<endl; 
     
     ///////////////////////////////////////////
     //             TEST CASES                //

@@ -4,7 +4,7 @@
  */
 
 #include <gtest/gtest.h>
-#include "Queue.h"
+#include "../Queue.h"
 
 TEST(Queue_array, capacity_constructor) {
     ee::array::Queue<int> test(2);

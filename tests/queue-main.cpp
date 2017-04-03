@@ -5,7 +5,7 @@
 #include <stdexcept> //had to add this for runtime and other random things that wouldn't compile
 #include <exception>
 #include <iostream>
-#include "Queue.h"
+#include "../Queue.h"
 
 
 int main(){
