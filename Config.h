@@ -52,15 +52,16 @@ struct Config {
     void printConfig() {
         std::cout << "Contents from config.txt " << std::endl;
 
-        std::cout << "--- Q1 = " << Q1 << " ---"<< std::endl;
+        std::cout << "-------- Q1 = " << Q1 << " --------"<< std::endl;
         std::cout << "q1a = " << q1a << "\t\tq1b = " << q1b << std::endl;
         std::cout << "q1p = " << q1p << "\tq1e = " << q1e << std::endl;
 
-        std::cout << "--- Q2 = " << Q2 << " ---"<< std::endl;
+        std::cout << "-------- Q2 = " << Q2 << " --------"<< std::endl;
         std::cout << "q2p = " << q2p << "\tq2e = " << q2e << std::endl;
 
-        std::cout << "--- Q3 = " << Q3 << " ---"<< std::endl;
+        std::cout << "-------- Q3 = " << Q3 << " --------"<< std::endl;
         std::cout << "q3p = " << q3p << "\tq3e = " << q3e << std::endl;
+        std::cout << std::endl;
     }
 
     // Parse in all the values from the data file given

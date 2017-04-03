@@ -94,6 +94,14 @@ int main() {
     } // end while
 
     // TODO: ADD MIN/MAX/AVG calculations, PRINT VALUES
+    config.printConfig();
+    std::cout << "Queue1  drops: " << dropsQ1 << std::endl;
+    std::cout << "Queue2  drops: " << dropsQ2 << std::endl;
+    std::cout << "Queue3  drops: " << dropsQ3 << std::endl;
+    std::cout << "Total   drops: " << dropsQ1 + dropsQ2 + dropsQ3 << std::endl;
+    std::cout << "Average drops: " << (dropsQ1 + dropsQ2 + dropsQ3) / 3 << std::endl;
+    std::cout << std::endl;
+
 
     return 0; 
 }
