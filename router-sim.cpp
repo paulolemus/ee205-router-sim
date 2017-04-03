@@ -1,89 +1,99 @@
 /* File: router-sim.cpp
+ * Team: Sandwich
+ * Date: 3/28/2017
  */
 
 /* Main program for the router simulation
- */
-
+*/
 
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
-using namespace std;
+#include <cstdlib> 
+#include <ctime> 
 
 #include "Config.h"
-#include <stdexcept> //had to add this for runtime and other random things that wouldn't compile
-#include <exception> //This one and the one above have to be before Queue.h 
 #include "Queue.h"
-#include <ctime>
 #include "Packet.h"
 
 
 int main() {
 
-    Config * conf = new Config; 
-    conf->ReadDaFile(); // Config.h reads the config.txt file
-    conf->printConfig(); //checks to see what was pulled from config.txt
-    
-    cout << "lambda1: " << conf->lambda1 << endl; // prints to check the correct times were pulled
-    cout << "process_time1: " << conf->process_time1 << endl; 
-    cout << "process_time2: " << conf->process_time2 << endl; 
-    cout << "process_time3: " << conf->process_time3 << endl << endl; 
+    srand( time(NULL) );
 
-	
-	int timer = 1;
-    int arrivals = 20; 
-    std::srand(std::time(NULL)); //for random numbers
+    std::string configFile = "config.txt";
+    Config config(configFile);
 
-    Packet *current = new Packet; //start the new packet
-    current->set_arrival_time(conf->lambda1); 
-    cout << current->arrival_time << endl; 
-    
-    
-    for (timer; arrivals !=0; timer++){
-        cout << "arrival count: " << arrivals << "\t\t";
-        arrivals --; 
-        
-		//enqueue in Q1
-		
-		
-        //after processing send to Q2 or Q3
-        int nextQueue = rand() % 2; //should be either 0 or 1
-        if (nextQueue == 0){
-        	cout << "Sending packet to Q2" << endl;
+    ee::array::Queue<Packet> queue1(config.Q1);
+    ee::array::Queue<Packet> queue2(config.Q2);
+    ee::array::Queue<Packet> queue3(config.Q3);
+
+    int dropsQ1 = 0;
+    int dropsQ2 = 0;
+    int dropsQ3 = 0;
+
+    int nextArrival = config.packetDelta();
+    int time = 0;
+
+    while(time < 10000) {
+
+        // Place incoming packets in queue1
+        if(nextArrival <= time) {
+            if( !queue1.enqueue(Packet(nextArrival)) ) dropsQ1++;
+            nextArrival = time + config.packetDelta();
         }
-        if (nextQueue == 1){
-        	cout << "Sending packet to Q3" << endl;
+
+        // Process any packets in queue 1
+        if(!queue1.isEmpty()) {
+
+            // Begin processing an inactive packet
+            if(!queue1.peek().active) {
+                queue1.peek().begin( time + config.processTimeQ1() );
+            }
+
+            // Move head packet to next queue
+            else if(queue1.peek().process <= time) {
+                queue1.peek().finished();
+
+                if( (rand() % 2) == 0 ) {
+                    if(!queue2.enqueue( queue1.dequeue() )) dropsQ2++;
+                } 
+                else {
+                    if(!queue3.enqueue( queue1.dequeue() )) dropsQ3++;
+                }
+            }
         }
-    }
-    std::cout << "----Time of full process " << timer << " ----" <<endl; 
-    
-    ///////////////////////////////////////////
-    //             TEST CASES                //
-    ///////////////////////////////////////////
-	std::cout << std::endl;
-    // queue objects from both implementations
-    ee::array::Queue<Packet> arrayQueue(5);
 
-    // Verify size and capacity functions are working
-    std::cout << "arrayQueue capacity: " << arrayQueue.capacity() << std::endl;
-    std::cout << "arrayQueue size: "     << arrayQueue.size()     << std::endl;
+        // Process packets in queue 2
+        if(!queue2.isEmpty()) {
 
-    // Completely fill queue
-    // arrayQueue.enqueue(*current);
-    // arrayQueue.enqueue(2);
-    // arrayQueue.enqueue(3);
-    // arrayQueue.enqueue(4);
-    // arrayQueue.enqueue(5);
-    // arrayQueue.enqueue(6);
+            // Begin processing an inactive packet
+            if(!queue2.peek().active) {
+                queue2.peek().begin( time + config.processTimeQ2() );
+            }
 
-    // Cap and size should both be full
-    std::cout << "arrayQueue capacity: " << arrayQueue.capacity() << std::endl;
-    std::cout << "arrayQueue size: "     << arrayQueue.size()     << std::endl;
-    std::cout << "Is arrayQueue full? "  << arrayQueue.isFull()   << std::endl;
+            // Move finished packets
+            else if(queue2.peek().process <= time) {
+                queue2.dequeue();
+            }
+        }
 
-    // test print function, prints from base to top of queue
-    // arrayQueue.print();
-    std::cout << std::endl;
+        // Process packets in queue 3
+        if(!queue3.isEmpty()) {
+
+            // Begin processing an inactive packet
+            if(!queue3.peek().active) {
+                queue3.peek().begin( time + config.processTimeQ3() );
+            }
+
+            // Move finished packets
+            else if(queue3.peek().process <= time) {
+                queue3.dequeue();
+            }
+        }
+        time++;
+
+    } // end while
+
+    // TODO: ADD MIN/MAX/AVG calculations, PRINT VALUES
+
     return 0; 
 }

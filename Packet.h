@@ -8,37 +8,45 @@
  * as discrete packets that are passed through the router.
  */
 
-#include <ctime>
-
-
 
 struct Packet {
-    long int arrival_time;
-    int process_time;
-    int dest;
-    int i; 
-    const int arrival_number = i;
+    bool active;
+    int process;
+    int arrival;
 
-    long int set_arrival_time(int range){
-        std::srand(std::time(NULL)); //for random numbers
-        arrival_time = rand() % range; 
-        std::cout << "Packet.h: Arrival time is: " << arrival_time << std::endl; 
-        return arrival_time;
+    Packet() :
+        active(false),
+        process(-1),
+        arrival(-1) {}
+
+    Packet(const Packet& p)  {
+        active   = p.active;
+        process  = p.process;
+        arrival  = p.arrival;
     }
-    
-    int set_process_time(int range){
-        std::srand(std::time(NULL)); //for random numbers
-        return process_time = rand() % range; 
+
+    Packet(int arrival) : 
+        active(false), 
+        process(-1),
+        arrival(arrival) {}
+
+    void begin(int processTime) {
+        process  = processTime;
+        active   = true;
     }
-    
-    int set_arrival_number(){
-        while (i){
-            i++;
-            return i;  
-        }
+
+    void finished() {
+        process = -1;
+        active = false;
     }
-    
-    int get_arrival_number() const {
-        return arrival_number; 
+
+    bool operator== (const Packet& p) {
+        return (p.arrival == arrival);
+    }
+
+    void operator= (const Packet& p) {
+        active = p.active;
+        process = p.process;
+        arrival = p.arrival;
     }
 };

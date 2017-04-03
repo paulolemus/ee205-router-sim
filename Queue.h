@@ -33,7 +33,7 @@ public:
     bool isFull();
     bool enqueue(const T& data);
     T    dequeue();
-    T    peek();
+    T&   peek();
     void print();
 
 };
@@ -103,7 +103,7 @@ T Queue<T>::dequeue() {
     throw std::runtime_error("dequeued from empty queue");
 }
 template <typename T>
-T Queue<T>::peek() {
+T& Queue<T>::peek() {
     if(sz > 0) {
         return array[head];
     }

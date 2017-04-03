@@ -73,3 +73,4 @@ clean-deps:
 	rm -r libgtest.a gtest-all.o
 
 clean: clean-tests clean-deps
+	rm Router
