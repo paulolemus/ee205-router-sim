@@ -25,12 +25,17 @@ CXX_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g
 TEST_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g \
 			  $(TESTINCLUDEDIR) $(TESTLIBS)
 
+#############################################################################
+## Add all new targets below this line
 
 all: Router
 
 Router: router-sim.cpp
 	g++ router-sim.cpp -o Router $(CXX_FLAGS)
 	
+## Do not edit after this line
+##############################################################################
+
 ### TESTCASE BUILD TARGETS
 
 DEP_FOLLOW = ar -rv libgtest.a gtest-all.o
@@ -40,9 +45,9 @@ deps:
 	-pthread -c $(GTEST_DIR)/src/gtest-all.cc
 	$(DEP_FOLLOW)
 
-tests: $(TEST_EXECUTABLES)
+tests: deps $(TEST_EXECUTABLES)
 
-test: $(TEST_SINGLE_EXECUTABLE)
+test: deps $(TEST_SINGLE_EXECUTABLE)
 	@echo "Test case: " $(value TESTCASE)
 
 run-test: $(TEST_SINGLE_EXECUTABLE)
@@ -57,6 +62,7 @@ $(TEST_SINGLE_EXECUTABLE): $(TEST_SINGLE_FILE)
 tests/%.out: tests/%.cpp
 	$(CXX) -o $@ $^ $(TEST_FLAGS)
 
+##############################################################################
 
 ### CLEAN RULES
 
