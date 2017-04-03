@@ -74,7 +74,6 @@ struct Config {
     		cout << "error in opening input file\n";
     		exit(EXIT_FAILURE);
     	}
-        Config * conf = new Config; 
     	cout << "Reading from input file...\n";
     	
     	infile >> q1a; //pulling in variables from file 

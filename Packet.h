@@ -31,14 +31,14 @@ struct Packet {
         return process_time = rand() % range; 
     }
     
-    int set_arrival_number(void){
+    int set_arrival_number(){
         while (i){
             i++;
             return i;  
         }
     }
     
-    const int get_arrival_number(void){
+    const int get_arrival_number(){
         return arrival_number; 
     }
 };

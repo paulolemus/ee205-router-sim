@@ -56,6 +56,7 @@ int main() {
         	cout << "Sending packet to Q3" << endl;
         }
     }
+    std::cout << "----Time of full process " << timer << " ----" <<endl; 
     
     ///////////////////////////////////////////
     //             TEST CASES                //
