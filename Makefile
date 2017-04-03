@@ -37,7 +37,7 @@ DEP_FOLLOW = ar -rv libgtest.a gtest-all.o
 
 deps: 
 	g++ -isystem $(GTEST_DIR)/include -I$(GTEST_DIR) \
-	-pthread -c $(GTEST_DIR)/src/gtest-all.cc
+	-lpthread -c $(GTEST_DIR)/src/gtest-all.cc
 	$(DEP_FOLLOW)
 
 tests: $(TEST_EXECUTABLES)
