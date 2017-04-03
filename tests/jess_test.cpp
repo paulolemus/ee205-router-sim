@@ -1,8 +1,12 @@
-/* File: router-sim.cpp
+/* 
+File: jess_test.cpp
+Author: Jessica Grazziotin
+Date: 3/30/17
+Course: EE 205 Hw 3
+Description: This file is used to test the Config file reader. It pulls in the inputs from config.txt
  */
 
-/* Main program for the router simulation
- */
+
 
 //This is the file parser from the io file Dr.B gave us in lab5
 //she told me to use it for lab 5 so I don't see why we can't for this assignment
