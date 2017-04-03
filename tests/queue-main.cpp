@@ -2,7 +2,7 @@
  * Name: Paulo Lemus
  * Date: 3/13/2017
  */
-#include <stdexcept> //had to add this for runtime and other random things that wouldn't compile
+#include <stdexcept> 
 #include <exception>
 #include <iostream>
 #include "../Queue.h"

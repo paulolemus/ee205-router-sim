@@ -50,7 +50,7 @@ tests: deps $(TEST_EXECUTABLES)
 test: deps $(TEST_SINGLE_EXECUTABLE)
 	@echo "Test case: " $(value TESTCASE)
 
-run-test: $(TEST_SINGLE_EXECUTABLE)
+run-test: deps $(TEST_SINGLE_EXECUTABLE)
 	@echo "Test case: " $(value TESTCASE)
 	cd ./tests/
 	$(TEST_SINGLE_EXECUTABLE)
