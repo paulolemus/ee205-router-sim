@@ -49,7 +49,7 @@ int main() {
     cout << current->arrival_time << endl; 
     
     
-    for (timer; arrivals !=0; timer++){
+    for (; arrivals !=0; timer++){
         cout << "arrival count: " << arrivals << "\t\t";
         arrivals --; 
         

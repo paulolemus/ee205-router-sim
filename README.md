@@ -8,7 +8,13 @@ Group repo for our EE 205 Programming Assignment 3, Stacks and Queues, Router Si
 3. export TESTCASE=<test-case-name-without-cpp-extension>
 4. make run-test
 
+# Running a particular test in tests folder
 
-# Building homemade tests:
-1. make test_name 
-2. ./tests/test_name
+1. Export the name of the test without the .cpp extension into your
+   bash environment.
+   Example: `export TESTCASE=test-Queue-array` then `make run-test`
+
+# Building all .cpp files in the test folder
+
+simply type `make tests`, and all the tests will be compiled
+into a file of the same name suffixed with `.out`.

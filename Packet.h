@@ -17,7 +17,7 @@ struct Packet {
     int process_time;
     int dest;
     int i; 
-    const int arrival_number =i;
+    const int arrival_number = i;
 
     long int set_arrival_time(int range){
         std::srand(std::time(NULL)); //for random numbers
@@ -38,7 +38,7 @@ struct Packet {
         }
     }
     
-    const int get_arrival_number(){
+    int get_arrival_number() const {
         return arrival_number; 
     }
 };
