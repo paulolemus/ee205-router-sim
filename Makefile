@@ -31,10 +31,11 @@ all: Router
 Router: router-sim.cpp
 	g++ router-sim.cpp -o Router $(CXX_FLAGS)
 
-main-queue: main-queue.cpp
-	g++ main-queue.cpp -o bin/main-queue $(CXX_FLAGS)
+test_queue-main: tests/queue-main.cpp
+	g++ tests/queue-main.cpp -o tests/test_queue-main $(CXX_FLAGS)
 
-
+test_jess: tests/jess_test.cpp
+	g++ tests/jess_test.cpp -o tests/test_jess $(CXX_FLAGS)
 ### TESTCASE BUILD TARGETS
 
 DEP_FOLLOW = ar -rv libgtest.a gtest-all.o
