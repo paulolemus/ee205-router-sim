@@ -1,4 +1,4 @@
-## HW3 Evaluation - Matt Yamamoto - Team Sandwich
+## HW3 Evaluation - Paulo Lemus - Team Sandwich
 
 
 ## 1) What I learned from this homework:
