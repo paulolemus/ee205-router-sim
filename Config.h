@@ -54,7 +54,7 @@ struct Config {
 
         std::cout << "-------- Q1 = " << Q1 << " --------"<< std::endl;
         std::cout << "q1a = " << q1a << "\t\tq1b = " << q1b << std::endl;
-        std::cout << "q1p = " << q1p << "\tq1e = " << q1e << std::endl;
+        std::cout << "q1p = " << q1p << "\t\tq1e = " << q1e << std::endl;
 
         std::cout << "-------- Q2 = " << Q2 << " --------"<< std::endl;
         std::cout << "q2p = " << q2p << "\tq2e = " << q2e << std::endl;

@@ -7,6 +7,11 @@
  * and logic in the stack class are sound. Each test case
  * runs independently and if all the tests "pass", then
  * the program will notify you upon running it.
+ *
+ * To execute this file, type the following from the root dir:
+ * 1. export TESTCASE=test-Stack-list
+ * 2. make test
+ * 3. make run-test
  */
 
 #include <gtest/gtest.h>
@@ -31,6 +36,8 @@ TEST(Stack_list, isEmpty_n_isNotFull) {
     ASSERT_FALSE(stack.isFull());
 }
 
+// Ensure that user pushing to stack updates
+// the size, isEmpty, and isFull functions
 TEST(Stack_list, push_and_size) {
     ee::list::Stack<int> stack(3);
 
@@ -120,7 +127,7 @@ TEST(Stack_list, pushing_n_popping) {
     ASSERT_FALSE(stack.isEmpty());
 }
 
-// Assert that use cannot pop from empty stack
+// Assert that user cannot pop from empty stack
 TEST(Stack_list, empty_pop_throw) {
     ee::list::Stack<int> stack(3);
 

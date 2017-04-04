@@ -8,6 +8,10 @@
  * as discrete packets that are passed through the router.
  */
 
+#ifndef EE_HW3_PACKET_H_
+#define EE_HW3_PACKET_H_
+
+#include <ostream>
 
 struct Packet {
     bool active;
@@ -49,4 +53,12 @@ struct Packet {
         process = p.process;
         arrival = p.arrival;
     }
+    friend std::ostream& operator<< (std::ostream& out, const Packet& p) {
+        out << p.arrival;
+        if(p.active) out << "t";
+        else         out << "f";
+        return out;
+    }
 };
+
+#endif // EE_HW3_PACKET_H_
