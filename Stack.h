@@ -6,7 +6,8 @@
 #ifndef EE_STACK_LIST_H_
 #define EE_STACK_LIST_H_
 
-#include <exception>
+#include <stdexcept>
+// #include <exception>
 #include <iostream>
 
 namespace ee {

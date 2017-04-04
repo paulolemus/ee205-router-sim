@@ -6,7 +6,7 @@
 #ifndef EE_ARRAY_QUEUE_H_
 #define EE_ARRAY_QUEUE_H_
 
-#include <exception>
+// #include <exception>
 #include <stdexcept> 
 
 namespace ee {
