@@ -1,5 +1,5 @@
 /* 
-File: jess_test.cpp
+File: test_Config.cpp
 Author: Jessica Grazziotin
 Date: 3/30/17
 Course: EE 205 Hw 3
