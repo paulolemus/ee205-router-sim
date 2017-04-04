@@ -80,15 +80,6 @@ int main(int argc, char** argv) {
     // they are removed from the queue.
     while(time < timeLimit) {
 
-        // print lines if user launches program with DEBUG argument
-        if(DEBUG) {
-            std::cout << "-----------------------------------" << std::endl;
-            std::cout << "Time: " << time << std::endl;
-            std::cout << "Q1 "; queue1.print();
-            std::cout << "Q2 "; queue2.print();
-            std::cout << "Q3 "; queue3.print();
-        }
-
         // Place incoming packets in queue1
         if(nextArrival <= time) {
             numPackets++;
@@ -149,6 +140,17 @@ int main(int argc, char** argv) {
                 queue3.dequeue();
             }
         }
+
+        // print lines if user launches program with DEBUG argument
+        if(DEBUG) {
+            std::cout << "-----------------------------------" << std::endl;
+            std::cout << "Time: " << time << std::endl;
+            std::cout << "Next arrival: " << nextArrival << std::endl;
+            std::cout << "Q1 "; queue1.print();
+            std::cout << "Q2 "; queue2.print();
+            std::cout << "Q3 "; queue3.print();
+        }
+
         // Step time in simulation
         time++;
 
@@ -164,6 +166,8 @@ int main(int argc, char** argv) {
     std::cout << "Queue3  drops: " << dropsQ3 << std::endl;
     std::cout << "Total   drops: " << dropsQ1 + dropsQ2 + dropsQ3 << std::endl;
     std::cout << "Average drops: " << (dropsQ1 + dropsQ2 + dropsQ3) / 3 << std::endl;
+    std::cout << "drop percent: " << 1.0 * (dropsQ1 + dropsQ2 + dropsQ3) / numPackets;
+    std::cout << "%" << std::endl;
     std::cout << "-----------------------------------------------" << std::endl;
     std::cout << "Queue1 min wait: " << getMin(waitTimesQ1) << std::endl;
     std::cout << "Queue2 min wait: " << getMin(waitTimesQ2) << std::endl;
