@@ -6,7 +6,6 @@
 #ifndef EE_ARRAY_QUEUE_H_
 #define EE_ARRAY_QUEUE_H_
 
-// #include <exception>
 #include <stdexcept> 
 
 namespace ee {
@@ -101,14 +100,20 @@ T Queue<T>::dequeue() {
         if(head != tail) head = (head + 1) % cap;
         return array[position];
     }
-    throw std::runtime_error("dequeued from empty queue");
+    else throw std::runtime_error("dequeued from empty queue");
 }
+
+/* PEEK:
+ * This returns a reference to the top element so the user
+ * can access and modify it without removing it from the 
+ * front of the queue.
+ */
 template <typename T>
 T& Queue<T>::peek() {
     if(sz > 0) {
         return array[head];
     }
-    throw std::runtime_error("Peeked on empty queue");
+    else throw std::runtime_error("Peeked on empty queue");
 }
 template <typename T>
 void Queue<T>::print() {

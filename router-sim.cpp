@@ -69,6 +69,15 @@ int main(int argc, char** argv) {
     // Primary loop for the router simulation. This loop
     // steps through each seconds and processes each packet
     // using the parameters provided in the config file.
+    //
+    // ALGORITHM:
+    // This program steps through every second of the simulation from
+    // 0 to either 100000 by default or a given time limit. At the 
+    // start of a fresh loop, the program checks if it is time for 
+    // new packet to arrive. If it is, it adds the packet to Q1.
+    // Every loop, each queue also checks if it needs to process a packet.
+    // Packets are processed once their process time has been reached, then
+    // they are removed from the queue.
     while(time < timeLimit) {
 
         // print lines if user launches program with DEBUG argument
@@ -95,7 +104,7 @@ int main(int argc, char** argv) {
                 queue1.peek().begin( time + config.processTimeQ1() );
             }
 
-            // Move head packet to next queue
+            // Move finished packets to next queue randomly
             else if(queue1.peek().process <= time) {
 
                 waitTimesQ1.push_back(time - queue1.peek().arrival);
@@ -119,7 +128,7 @@ int main(int argc, char** argv) {
                 queue2.peek().begin( time + config.processTimeQ2() );
             }
 
-            // Move finished packets
+            // Delete finished packets
             else if(queue2.peek().process <= time) {
                 waitTimesQ2.push_back(time - queue2.peek().arrival);
                 queue2.dequeue();
@@ -129,17 +138,18 @@ int main(int argc, char** argv) {
         // Process packets in queue 3
         if(!queue3.isEmpty()) {
 
-            // Begin processing an inactive packet
+            // Begin processing an inactive packet in queue
             if(!queue3.peek().active) {
                 queue3.peek().begin( time + config.processTimeQ3() );
             }
 
-            // Move finished packets
+            // Delete fully processed packets
             else if(queue3.peek().process <= time) {
                 waitTimesQ3.push_back(time - queue3.peek().arrival);
                 queue3.dequeue();
             }
         }
+        // Step time in simulation
         time++;
 
     } // end while
@@ -174,6 +184,12 @@ int main(int argc, char** argv) {
     return 0; 
 }
 
+/* ALGORITHM:
+ * 1. Save all program arguments besides program name to a string vector.
+ * 2. Check each string in the vector and do the following:
+ *  a. If string is equal to DEBUG, enable debug flag.
+ *  b. else if string is convertable to int, set the timelimit to the int.
+ */
 void processArgs(int argc, char** argv, int& timeLimit, bool& DEBUG) {
     std::vector<std::string> args;
     for(int i = 1; i < argc; ++i) args.push_back(argv[i]);
@@ -188,6 +204,11 @@ void processArgs(int argc, char** argv, int& timeLimit, bool& DEBUG) {
     }
 }
 
+/* ALGORITHM:
+ * Set a min variable to first element in vector.
+ * If any element is smaller while iterating,
+ * replace min with that element.
+ */
 int getMin(const std::vector<int>& vec) {
     
     if(vec.size() <= 0) return -1;
@@ -200,6 +221,11 @@ int getMin(const std::vector<int>& vec) {
     }
 }
 
+/* ALGORITHM:
+ * Set a max variable to the first element of array.
+ * If any element is greater than max while iterating, 
+ * replace max with that element.
+ */
 int getMax(const std::vector<int>& vec) {
     
     if(vec.size() <= 0) return -1;
@@ -212,6 +238,9 @@ int getMax(const std::vector<int>& vec) {
     }
 }
 
+/* ALGORITHM:
+ * Sum all elements in vector, divide by vector size
+ */
 double getAvg(const std::vector<int>& vec) {
 
     if(vec.size() <= 0) return -1;
