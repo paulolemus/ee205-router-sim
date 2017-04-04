@@ -20,6 +20,8 @@ int main (){
     Token t(ch,90);
     cout << "token: " << t.value << endl; 
     
+    
+    //Stack as ints
     ee::list::Stack<int> s(2);
     cout << "stack capacity: " << s.capacity() << endl; 
     cout << "stack size: " << s.size() << endl; 
@@ -40,4 +42,28 @@ int main (){
     s.push(t.value);
     s.print();
     cout << "it worked!" << endl << endl;
+    
+    //Stack as Token --NOT WORKING RIGHT NOW
+    // ee::list::Stack<Token> tokenStack(t);
+    // cout << "stack capacity: " << tokenStack.capacity() << endl; 
+    // cout << "stack size: " << tokenStack.size() << endl; 
+    // cout << "...printing stack"<< endl;
+    // cout << "pushing 1, 2, 3 onto stack" << endl;
+    // s.push(1); s.push(2); s.push(3);
+    // s.print();
+    // cout << "Only " << s.capacity() << " fits!" << endl; 
+    // cout << "New stack size: " << s.size() << endl; 
+    // cout << "trying to push token on stack" << endl;
+    // s.push(t.value);
+    // s.print();
+    // cout << "didn't work because stack is full" << endl << endl;
+    // cout << "Try popping:" << endl;
+    // cout << "Popped element: " << s.pop() << endl; 
+    // s.print();
+    // cout << "trying to push token again" << endl;
+    // s.push(t.value);
+    // s.print();
+    // cout << "it worked!" << endl << endl;
+    
+    
 }
