@@ -15,9 +15,9 @@
 
 
 
-// float number_check(string s, bool i);
+
 float calculator(char *c, ee::list::Stack<float> * stack);
-// bool check_negative(string s);
+
 
 int main(){
     //declarations
