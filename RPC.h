@@ -69,7 +69,7 @@ float number_check(string s, bool i){ //boolean is for negative numbers
 
 bool check_negative(string s){
     const char* temp = s.c_str();
-    float f;
+    float f=0;
     // cout << "temp string is: " << temp << endl; //debug
     if (isdigit(temp[1])){
         // cout << "---is negative digit: " << temp << endl; //debug
@@ -77,6 +77,7 @@ bool check_negative(string s){
         // cout << "--- f = " << f << endl; //debug
         return 1; 
     }
+    f = f; 
     // cout << "---not a neg digit" << endl; //debug
     return 0; 
 }
