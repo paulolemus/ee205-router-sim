@@ -42,15 +42,15 @@ int main(){
     // while there's still more tokens
     while( token != NULL ){ 
         output = calculator(token, &k); //send them to the calculator
+        if (isnan(output)){ //check for an error output and quit
+            return 0; 
+        }
         token = strtok(NULL, delim); //continue to seperate the remainder of the string (I have no idea how it knows to keep seperating duplicate?)
     }
 
     free(duplicate); //release the duplicate string
     cout << "Final Answer: "<< endl; 
-    if (output == false){
-        cout << "Error" << endl; 
-    }
-    else {cout << "---> " << output << endl; }
+    cout << "---> " << output << endl; 
  
     
     //error checking
@@ -58,7 +58,6 @@ int main(){
 
     return 0; 
 }
-
 
 
 
@@ -80,7 +79,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             else { // - is for an operation    
                 b = stack->pop();
                 if (stack->isEmpty() == true){ 
-                    cout << "Error at input" << endl;
+                    cout << "Error: at input format" << endl;
                     f = NAN; 
                     break; 
                 }
@@ -111,7 +110,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
         case '+': 
             b = stack->pop();
             if (stack->isEmpty() == true){ // this means there were only 1 or 0 things in the stack before the operation
-                cout << "Error at input" << endl;
+                cout << "Error: at input format" << endl;
                 f = NAN; 
                 break; 
             }
@@ -122,7 +121,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
         case '*':
             b = stack->pop(); 
             if (stack->isEmpty() == true){ 
-                cout << "Error at input" << endl;
+                cout << "Error: at input format" << endl;
                 f = NAN; 
                 break; 
             }
@@ -134,10 +133,11 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             b = stack->pop();
             if (b == 0){ 
                 cout << "cannot divide by zero" << endl;
-                return 0; 
+                f = NAN;
+                return f; 
             }
             if (stack->isEmpty() == true){ 
-                cout << "Error at input" << endl;
+                cout << "Error: at input format" << endl;
                 f = NAN; 
                 break; 
             }
@@ -151,7 +151,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             if (b == 0){ 
                 cout << "cannot '%' by zero" << endl;
                 f = NAN; 
-                return 0; 
+                return f; 
             }
             a = stack->pop(); 
             int_valueA = (int)a;
@@ -170,12 +170,11 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             f = pow (a , b); 
             stack->push(f);
             break;
-        default: cout << "Invalid Input " << c << endl;
+        default: {
+            cout << "Invalid Input " << c << endl;
+            f = NAN;
+            return f; 
+            }
     }
     return f; 
 }
-
-
-
-
-
