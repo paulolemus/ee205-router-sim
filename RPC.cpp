@@ -10,8 +10,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "../Stack.h"
-#include "../RPC.h"
+#include "Stack.h"
+#include "RPC.h"
 
 using namespace std; 
 
@@ -27,6 +27,7 @@ int main(){
     
     //prompt user
     prompt(); // RPC.h
+    cout << "Check out our test file to watch the stack" << endl; 
     
     // get input
     getline (cin, s);
@@ -41,15 +42,15 @@ int main(){
     // while there's still more tokens
     while( token != NULL ){ 
         output = calculator(token, &k); //send them to the calculator
-        cout << "output is : "<< output << endl; //read the output
-        k.print(); //print the stack
         token = strtok(NULL, delim); //continue to seperate the remainder of the string (I have no idea how it knows to keep seperating duplicate?)
-        cout << endl; 
     }
 
     free(duplicate); //release the duplicate string
-    cout << "Final Answer to input: " << s << endl; 
-    cout << "---> " << output << endl; 
+    cout << "Final Answer: "<< endl; 
+    if (output == false){
+        cout << "Error" << endl; 
+    }
+    else {cout << "---> " << output << endl; }
  
     
     //error checking
@@ -62,7 +63,7 @@ int main(){
 
 
 
-
+//similar to checker from B. Stroustrup's file but using our personal stack
 float calculator(char *c, ee::list::Stack<float>* stack){
     float f, a, b;  
     string temp;
@@ -80,6 +81,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
                 b = stack->pop();
                 if (stack->isEmpty() == true){ 
                     cout << "Error at input" << endl;
+                    f = NAN; 
                     break; 
                 }
                 a = stack->pop(); 
@@ -110,6 +112,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             b = stack->pop();
             if (stack->isEmpty() == true){ // this means there were only 1 or 0 things in the stack before the operation
                 cout << "Error at input" << endl;
+                f = NAN; 
                 break; 
             }
             a = stack->pop(); 
@@ -120,6 +123,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             b = stack->pop(); 
             if (stack->isEmpty() == true){ 
                 cout << "Error at input" << endl;
+                f = NAN; 
                 break; 
             }
             a = stack->pop(); 
@@ -134,6 +138,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             }
             if (stack->isEmpty() == true){ 
                 cout << "Error at input" << endl;
+                f = NAN; 
                 break; 
             }
             a = stack->pop(); 
@@ -145,6 +150,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             int_valueB = (int)b;
             if (b == 0){ 
                 cout << "cannot '%' by zero" << endl;
+                f = NAN; 
                 return 0; 
             }
             a = stack->pop(); 
@@ -157,6 +163,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             b = stack->pop(); 
             if (stack->isEmpty() == true){ 
                 cout << "Error: at input format" << endl;
+                f = NAN; 
                 break; 
             }
             a = stack->pop(); 

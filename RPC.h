@@ -38,42 +38,51 @@ using namespace std;
         void ignore(char);
     };
 
+void prompt (){
+    cout << "RPC: input a line in Reverse Polish Notation form:" << endl; 
+    cout << "-----IMPORTANT: separate each input by a space ' ' -----" << endl; 
+    cout << "Correct: 2 4 3 - +     Error: 243-+ or 2 4 3- +" <<endl; 
+    cout << "Correct: 1 44 /        Error: 1/44 or 1 44/" <<endl; 
+    cout << "Possible operations: + - * / ^ modulus    Possible inputs: floating point numbers" << endl; 
+}
 
+float number_check(string s, bool i){ //boolean is for negative numbers
+    const char* temp = s.c_str();
+    float f;
+    if (i == false){    // if its positive start at beginning
+        if (isdigit(temp[0])){
+            f = atof (temp);  
+            // cout << "is non negative digit: " << temp << endl; //debug
+            return f; 
+        }
+    }
+    if (i == true){ //if check if its a digit at the second number
+        if (isdigit(temp[1])){
+            f = atof (temp);  
+            // cout << "is negative digit: " << temp << endl; //debug
+            return f; 
+        }
+    }
+    // cout << "---not a float" << endl; //debug
+    return f = NAN; 
+}
+
+bool check_negative(string s){
+    const char* temp = s.c_str();
+    float f;
+    // cout << "temp string is: " << temp << endl; //debug
+    if (isdigit(temp[1])){
+        // cout << "---is negative digit: " << temp << endl; //debug
+        f = atof (temp);
+        // cout << "--- f = " << f << endl; //debug
+        return 1; 
+    }
+    // cout << "---not a neg digit" << endl; //debug
+    return 0; 
+}
 
     
 
-
-
-
-////// Stuff I was playing with earlier --- some works some doesnt : /
-
-            // for (int i=0; i < inputA.length() ; i++){
-            //     while (inputA != '\n' || inputA != ' '){
-            //         if(inputA == '.'){
-            //             std::cout << "dot" << endl; 
-            //         }
-            // 
-                // // std::string inputA; 
-    // char inputA; 
-    // while(true){
-    //     std::cout << "Input the first number: "; 
-    //     std::cin >> inputA; 
-        
-    //     if (isalpha(inputA)){
-    //         std::cout << "Letters are not accepted" << std::endl; 
-    //     }
-    //     else if (isdigit(inputA)){
-    //         int n_inputA = stoi(inputA, NULL, 10);    
-    //         std::cout << inputA << " worked!" << std::endl; 
-    //         cout << n_inputA << " is the int version" << endl; 
-    //     }
-    //     else if (inputA == '+'){
-    //             std::cout << "it's a plus" << std::endl; 
-    //         }
-            
-    //     else {
-    //         std::cout << "none of the above" << std::endl;
-    //     }
     
     
 #endif
