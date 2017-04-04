@@ -13,6 +13,7 @@
  
 #include <iostream>       // std::cout
 #include <string>         // std::string
+#include <cmath>          // NAN
 #include <ctime>
 #include <cstdlib>
 
