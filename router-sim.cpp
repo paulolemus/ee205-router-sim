@@ -190,7 +190,7 @@ void processArgs(int argc, char** argv, int& timeLimit, bool& DEBUG) {
 
 int getMin(const std::vector<int>& vec) {
     
-    if(vec.size() <= 0) throw std::runtime_error("No min for empty vector");
+    if(vec.size() <= 0) return -1;
     else {
         int min = vec[0];
         for(auto value : vec) {
@@ -202,7 +202,7 @@ int getMin(const std::vector<int>& vec) {
 
 int getMax(const std::vector<int>& vec) {
     
-    if(vec.size() <= 0) throw std::runtime_error("No max for empty vector");
+    if(vec.size() <= 0) return -1;
     else {
         int max = vec[0];
         for(auto value : vec) {
@@ -214,7 +214,7 @@ int getMax(const std::vector<int>& vec) {
 
 double getAvg(const std::vector<int>& vec) {
 
-    if(vec.size() <= 0) throw std::runtime_error("No average for empty vector");
+    if(vec.size() <= 0) return -1;
     else {
         long int sum = 0;
         for(auto value : vec) sum += value;
@@ -224,8 +224,7 @@ double getAvg(const std::vector<int>& vec) {
 
 double getStd(const std::vector<int>& vec) {
 
-    if(vec.size() <= 0) 
-        throw std::runtime_error("No standard deviation for empty vector");
+    if(vec.size() <= 0) return -1; 
     else {
     
         // calculate the average of values
