@@ -7,6 +7,11 @@
  * and logic in the queue class are sound. Each test case
  * runs independantly and if all the tests "pass", then
  * the program will notify you upon running it.
+ *
+ * TO EXECUTE THIS FILE, go to root dir and type the following:
+ * 1. export TESTCASE=test-Queue-array
+ * 2. make test
+ * 3. make run-test
  */
 
 #include <gtest/gtest.h>
@@ -31,6 +36,8 @@ TEST(Queue_array, isEmpty_n_isNotFull) {
     ASSERT_FALSE(queue.isFull());
 }
 
+// Ensure that enqueuing updates the other class
+// functions such as isEmpty, size, isFull
 TEST(Queue_array, enqueue_and_size) {
     ee::array::Queue<int> queue(3);
 
@@ -119,7 +126,7 @@ TEST(Queue_array, enqueuing_n_dequeuing) {
     ASSERT_FALSE(queue.isEmpty());
 }
 
-// Assert that use cannot dequeue from empty queue
+// Assert that user cannot dequeue from empty queue
 TEST(Queue_array, empty_dequeue_throw) {
     ee::array::Queue<int> queue(3);
 
@@ -136,7 +143,7 @@ TEST(Queue_array, print_check) {
     std::stringstream out;
     std::cout.rdbuf( out.rdbuf() );
 
-    std::string expected = "Queue Contents: \n1\n2\n3\n";
+    std::string expected = "contents: 1 2 3\n";
 
     ee::array::Queue<int> queue(3);
     queue.enqueue(1);

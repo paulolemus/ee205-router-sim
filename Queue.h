@@ -111,15 +111,17 @@ T& Queue<T>::peek() {
 }
 template <typename T>
 void Queue<T>::print() {
-    if(head == tail && sz > 0) std::cout << array[head] << std::endl;
+    std::cout << "contents:";
+    if(sz <= 0) std::cout << " Empty!";
+    else if(head == tail && sz > 0) std::cout << " " << array[head];
     else if(sz > 0) {
-        std::cout << "Queue Contents: " << std::endl; //added this to help clean up a bit
         int index = head;
         for (int i = 0; i < sz; ++i) {
-            std::cout << array[index] << std::endl;
+            std::cout << " " << array[index];
             index = (index + 1) % cap;
         }
     }
+    std::cout << std::endl;
 }
 
 
