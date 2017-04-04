@@ -20,8 +20,18 @@ TEST(Token_stack, token_constructor) {
 TEST(Token_stack, token_stack_constructor) {
     ee::list::Stack<Token> stack(5);
     ASSERT_EQ(stack.capacity(), 5);
+    ASSERT_EQ(stack.size(), 0);
     ASSERT_TRUE(stack.isEmpty());
     ASSERT_FALSE(stack.isFull());
+}
+
+TEST(Token_stack, pushing_tokens) {
+    ee::list::Stack<Token> stack(5);
+    ASSERT_TRUE(stack.push(Token('i', 90)));
+    ASSERT_EQ(stack.size(), 1);
+    ASSERT_FALSE(stack.isEmpty());
+    ASSERT_EQ(stack.peek().kind, 'i');
+    ASSERT_EQ(stack.peek().value, 90);
 }
 
 int main(int argc, char** argv) {
