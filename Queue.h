@@ -7,6 +7,7 @@
 #define EE_ARRAY_QUEUE_H_
 
 #include <exception>
+#include <stdexcept> 
 
 namespace ee {
 namespace array {
