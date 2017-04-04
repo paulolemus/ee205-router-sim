@@ -13,7 +13,6 @@
 #include "Stack.h"
 #include "RPC.h"
 
-using namespace std; 
 
 // float number_check(string s, bool i);
 float calculator(char *c, ee::list::Stack<float> * stack);
@@ -27,11 +26,11 @@ int main(){
     
     //prompt user
     prompt(); // RPC.h
-    cout << "Check out our test file to watch the stack" << endl; 
+    std::cout << "Check out our test file to watch the stack" << std::endl; 
     
     // get input
     getline (cin, s);
-    cout << "Input received: " << s << endl; 
+    std::cout << "Input received: " << s << std::endl; 
     char *duplicate = strdup(s.c_str());  //strdup duplicates the string "s" into a char pointer (see token = strtok)
     char *token; 
     char delim[] = " ,;'?:_!@#$&|[]{}~=()\t\n"; //common test delimeters
@@ -49,8 +48,8 @@ int main(){
     }
 
     free(duplicate); //release the duplicate string
-    cout << "Final Answer: "<< endl; 
-    cout << "---> " << output << endl; 
+    std::cout << "Final Answer: "<< std::endl; 
+    std::cout << "---> " << output << std::endl; 
  
     
     //error checking
@@ -72,14 +71,14 @@ float calculator(char *c, ee::list::Stack<float>* stack){
         case '-': { // - IS FOR NEGATIVE NUMBERS
             temp = c; //convert c to string
             if (check_negative(temp)){ //RPC.h
-                cout << "true" << endl;
+                std::cout << "true" << std::endl;
                 f = number_check(temp, 1); //RPC.h
                 if (isnan(f)== 0) stack->push(f);
             }
             else { // - is for an operation    
                 b = stack->pop();
                 if (stack->isEmpty() == true){ 
-                    cout << "Error: at input format" << endl;
+                    std::cout << "Error: at input format" << std::endl;
                     f = NAN; 
                     break; 
                 }
@@ -108,20 +107,20 @@ float calculator(char *c, ee::list::Stack<float>* stack){
         
         // case it's an operation (see minus above)
         case '+': 
-            b = stack->pop();
+            b = stack->pop(); //pop first val to a temp
             if (stack->isEmpty() == true){ // this means there were only 1 or 0 things in the stack before the operation
-                cout << "Error: at input format" << endl;
+                std::cout << "Error: at input format" << std::endl;
                 f = NAN; 
                 break; 
             }
-            a = stack->pop(); 
-            f = a + b; 
-            stack->push(f);
+            a = stack->pop(); //pop second val to a temp
+            f = a + b;  // perform function
+            stack->push(f); //push result back
             break;
-        case '*':
+        case '*': // ------ see case + for notes
             b = stack->pop(); 
             if (stack->isEmpty() == true){ 
-                cout << "Error: at input format" << endl;
+                std::cout << "Error: at input format" << std::endl;
                 f = NAN; 
                 break; 
             }
@@ -129,15 +128,15 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             f = a * b; 
             stack->push(f);
             break;
-        case '/':
+        case '/': // ------ see case + for notes
             b = stack->pop();
             if (b == 0){ 
-                cout << "cannot divide by zero" << endl;
+                std::cout << "cannot divide by zero" << std::endl;
                 f = NAN;
                 return f; 
             }
             if (stack->isEmpty() == true){ 
-                cout << "Error: at input format" << endl;
+                std::cout << "Error: at input format" << std::endl;
                 f = NAN; 
                 break; 
             }
@@ -145,33 +144,33 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             f = a / b; 
             stack->push(f);
             break;
-        case '%':
+        case '%': // ------ see case + for notes
             b = stack->pop();
-            int_valueB = (int)b;
+            int_valueB = (int)b; //convert float to int (% is an int op)
             if (b == 0){ 
-                cout << "cannot '%' by zero" << endl;
+                std::cout << "cannot '%' by zero" << std::endl;
                 f = NAN; 
                 return f; 
             }
             a = stack->pop(); 
-            int_valueA = (int)a;
+            int_valueA = (int)a; //convert float to int (% is an int op)
             f = int_valueA % int_valueB;  
             stack->push(f);
             break;
             // //run op funciton
-        case '^':
+        case '^': // ------ see case + for notes
             b = stack->pop(); 
             if (stack->isEmpty() == true){ 
-                cout << "Error: at input format" << endl;
+                std::cout << "Error: at input format" << std::endl;
                 f = NAN; 
                 break; 
             }
             a = stack->pop(); 
-            f = pow (a , b); 
+            f = pow (a , b); //power or exponent function
             stack->push(f);
             break;
         default: {
-            cout << "Invalid Input " << c << endl;
+            std::cout << "Invalid Input " << c << std::endl;
             f = NAN;
             return f; 
             }

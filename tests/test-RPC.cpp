@@ -13,7 +13,7 @@
 #include "../Stack.h"
 #include "../RPC.h"
 
-using namespace std; 
+
 
 // float number_check(string s, bool i);
 float calculator(char *c, ee::list::Stack<float> * stack);
@@ -30,7 +30,7 @@ int main(){
     
     // get input
     getline (cin, s);
-    cout << "Input received: " << s << endl; 
+    std::cout << "Input received: " << s << std::endl; 
     char *duplicate = strdup(s.c_str());  //strdup duplicates the string "s" into a char pointer (see token = strtok)
     char *token; 
     char delim[] = " ,;'?:_!@#$&|[]{}~=()\t\n"; //common test delimeters
@@ -44,15 +44,15 @@ int main(){
         if (isnan(output)){ //check for an error output and quit
             return 0; 
         }
-        cout << "output is : "<< output << endl; //read the output
+        std::cout << "output is : "<< output << std::endl; //read the output
         k.print(); //print the stack
         token = strtok(NULL, delim); //continue to seperate the remainder of the string (I have no idea how it knows to keep seperating duplicate?)
-        cout << endl; 
+        std::cout << std::endl; 
     }
 
     free(duplicate); //release the duplicate string
-    cout << "Final Answer to input: " << s << endl; 
-    cout << "---> " << output << endl; 
+    std::cout << "Final Answer to input: " << s << std::endl; 
+    std::cout << "---> " << output << std::endl; 
  
     
     //error checking
@@ -73,14 +73,14 @@ float calculator(char *c, ee::list::Stack<float>* stack){
         case '-': { // - IS FOR NEGATIVE NUMBERS
             temp = c; //convert c to string
             if (check_negative(temp)){ //RPC.h
-                cout << "true" << endl;
+                std::cout << "true" << std::endl;
                 f = number_check(temp, 1); //RPC.h
                 if (isnan(f)== 0) stack->push(f);
             }
             else { // - is for an operation    
                 b = stack->pop();
                 if (stack->isEmpty() == true){ 
-                    cout << "Error: at input format" << endl;
+                    std::cout << "Error: at input format" << std::endl;
                     f = NAN; 
                     break; 
                 }
@@ -111,7 +111,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
         case '+': 
             b = stack->pop();
             if (stack->isEmpty() == true){ // this means there were only 1 or 0 things in the stack before the operation
-                cout << "Error: at input format" << endl;
+                std::cout << "Error: at input format" << std::endl;
                 f = NAN; 
                 break; 
             }
@@ -122,7 +122,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
         case '*':
             b = stack->pop(); 
             if (stack->isEmpty() == true){ 
-                cout << "Error: at input format" << endl;
+                std::cout << "Error: at input format" << std::endl;
                 f = NAN; 
                 break; 
             }
@@ -133,12 +133,12 @@ float calculator(char *c, ee::list::Stack<float>* stack){
         case '/':
             b = stack->pop();
             if (b == 0){ 
-                cout << "cannot divide by zero" << endl;
+                std::cout << "cannot divide by zero" << std::endl;
                 f = NAN;
                 return f; 
             }
             if (stack->isEmpty() == true){ 
-                cout << "Error: at input format" << endl;
+                std::cout << "Error: at input format" << std::endl;
                 f = NAN; 
                 break; 
             }
@@ -150,7 +150,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             b = stack->pop();
             int_valueB = (int)b;
             if (b == 0){ 
-                cout << "cannot '%' by zero" << endl;
+                std::cout << "cannot '%' by zero" << std::endl;
                 f = NAN; 
                 return f; 
             }
@@ -163,7 +163,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
         case '^':
             b = stack->pop(); 
             if (stack->isEmpty() == true){ 
-                cout << "Error: at input format" << endl;
+                std::cout << "Error: at input format" << std::endl;
                 f = NAN; 
                 break; 
             }
@@ -172,7 +172,7 @@ float calculator(char *c, ee::list::Stack<float>* stack){
             stack->push(f);
             break;
         default: {
-            cout << "Invalid Input " << c << endl;
+            std::cout << "Invalid Input " << c << std::endl;
             f = NAN;
             return f; 
             }
