@@ -52,6 +52,15 @@ This program simulates the way that a router queues in requests and delivers the
 The program by default processes requests from time 0 to 100000, and prints only a summary of the results. 
 To change the defaults, you can launch the program with an integer argument representing the timeLimit to run until, and/or the DEBUG flag, which prints the contents of each queue every second.
 
+This code works as expected. The algorithms used are described in the router-sim.cpp file.
+The general flow of the program is to have a while loop which steps a time variable. The time variable is used for all timing purposes.
+Every loop, several things can happen:
+1. A packet can come in
+2. The queues can begin to process the front most packet
+3. Q1 can dequeue into Q2 or Q3.
+4. Q2 or Q3 can complete a packet
+At the end of the program, all statistics are printed.
+
 RPC:
 This program simulates a Reverse Polish Calculator. This type of calculator was based on older calculators that wanted to conserve memory. 
 The key to this type of calculator is that it changes the typical input format that we use to write math equations. 
