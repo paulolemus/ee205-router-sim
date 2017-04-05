@@ -23,12 +23,11 @@ Description: This file is used to test the Config file reader. It pulls in the i
 #include "../Packet.h"
 
 //queue stuff
-#include <stdexcept> //had to add this for runtime and other random things that wouldn't compile
+#include <stdexcept> 
 #include <exception>
 #include "../Queue.h"
 #include "../Config.h"
 
-// #include "Config.h"
 using namespace std;
 
 
