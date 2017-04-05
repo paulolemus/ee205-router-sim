@@ -28,10 +28,10 @@ TEST_FLAGS := -Wall -Wextra -pedantic --std=c++11 -g \
 #############################################################################
 ## Add all new targets below this line
 
-all: Router RPC
+all: router RPC
 
-Router: router-sim.cpp
-	g++ router-sim.cpp -o Router $(CXX_FLAGS)
+router: router-sim.cpp
+	g++ router-sim.cpp -o router $(CXX_FLAGS)
 
 RPC: RPC.cpp
 	g++ RPC.cpp -o RPC $(CXX_FLAGS)
@@ -70,7 +70,7 @@ tests/%.out: tests/%.cpp
 ### CLEAN RULES
 
 clean-build:
-	rm Router RPC
+	rm router RPC
 
 clean-tests:
 	rm tests/*.out

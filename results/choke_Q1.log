@@ -1,0 +1,644 @@
+1 3 6 10 3
+3 4 3
+3 4 3
+
+#################################
+## LOG FROM THIS CONFIGURATION ##
+#################################
+
+
+Reading from input file...
+-----------------------------------
+Time: 0
+Next arrival: 1
+Q1 contents: Empty!
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 1
+Next arrival: 3
+Q1 contents: 1t
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 2
+Next arrival: 3
+Q1 contents: 1t
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 3
+Next arrival: 5
+Q1 contents: 1t 3f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 4
+Next arrival: 5
+Q1 contents: 1t 3f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 5
+Next arrival: 7
+Q1 contents: 1t 3f 5f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 6
+Next arrival: 7
+Q1 contents: 1t 3f 5f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 7
+Next arrival: 8
+Q1 contents: 1t 3f 5f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 8
+Next arrival: 9
+Q1 contents: 1t 3f 5f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 9
+Next arrival: 11
+Q1 contents: 1t 3f 5f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 10
+Next arrival: 11
+Q1 contents: 3f 5f
+Q2 contents: 10t
+Q3 contents: Empty!
+-----------------------------------
+Time: 11
+Next arrival: 13
+Q1 contents: 3t 5f 11f
+Q2 contents: 10t
+Q3 contents: Empty!
+-----------------------------------
+Time: 12
+Next arrival: 13
+Q1 contents: 3t 5f 11f
+Q2 contents: 10t
+Q3 contents: Empty!
+-----------------------------------
+Time: 13
+Next arrival: 15
+Q1 contents: 3t 5f 11f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 14
+Next arrival: 15
+Q1 contents: 3t 5f 11f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 15
+Next arrival: 17
+Q1 contents: 3t 5f 11f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 16
+Next arrival: 17
+Q1 contents: 3t 5f 11f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 17
+Next arrival: 19
+Q1 contents: 3t 5f 11f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 18
+Next arrival: 19
+Q1 contents: 3t 5f 11f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 19
+Next arrival: 21
+Q1 contents: 3t 5f 11f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 20
+Next arrival: 21
+Q1 contents: 5f 11f
+Q2 contents: 20t
+Q3 contents: Empty!
+-----------------------------------
+Time: 21
+Next arrival: 23
+Q1 contents: 5t 11f 21f
+Q2 contents: 20t
+Q3 contents: Empty!
+-----------------------------------
+Time: 22
+Next arrival: 23
+Q1 contents: 5t 11f 21f
+Q2 contents: 20t
+Q3 contents: Empty!
+-----------------------------------
+Time: 23
+Next arrival: 24
+Q1 contents: 5t 11f 21f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 24
+Next arrival: 26
+Q1 contents: 5t 11f 21f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 25
+Next arrival: 26
+Q1 contents: 5t 11f 21f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 26
+Next arrival: 28
+Q1 contents: 5t 11f 21f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 27
+Next arrival: 28
+Q1 contents: 5t 11f 21f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 28
+Next arrival: 29
+Q1 contents: 5t 11f 21f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 29
+Next arrival: 31
+Q1 contents: 5t 11f 21f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 30
+Next arrival: 31
+Q1 contents: 11f 21f
+Q2 contents: 30t
+Q3 contents: Empty!
+-----------------------------------
+Time: 31
+Next arrival: 33
+Q1 contents: 11t 21f 31f
+Q2 contents: 30t
+Q3 contents: Empty!
+-----------------------------------
+Time: 32
+Next arrival: 33
+Q1 contents: 11t 21f 31f
+Q2 contents: 30t
+Q3 contents: Empty!
+-----------------------------------
+Time: 33
+Next arrival: 35
+Q1 contents: 11t 21f 31f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 34
+Next arrival: 35
+Q1 contents: 11t 21f 31f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 35
+Next arrival: 36
+Q1 contents: 11t 21f 31f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 36
+Next arrival: 38
+Q1 contents: 11t 21f 31f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 37
+Next arrival: 38
+Q1 contents: 11t 21f 31f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 38
+Next arrival: 39
+Q1 contents: 11t 21f 31f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 39
+Next arrival: 41
+Q1 contents: 11t 21f 31f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 40
+Next arrival: 41
+Q1 contents: 21f 31f
+Q2 contents: 40t
+Q3 contents: Empty!
+-----------------------------------
+Time: 41
+Next arrival: 43
+Q1 contents: 21t 31f 41f
+Q2 contents: 40t
+Q3 contents: Empty!
+-----------------------------------
+Time: 42
+Next arrival: 43
+Q1 contents: 21t 31f 41f
+Q2 contents: 40t
+Q3 contents: Empty!
+-----------------------------------
+Time: 43
+Next arrival: 44
+Q1 contents: 21t 31f 41f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 44
+Next arrival: 46
+Q1 contents: 21t 31f 41f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 45
+Next arrival: 46
+Q1 contents: 21t 31f 41f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 46
+Next arrival: 48
+Q1 contents: 21t 31f 41f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 47
+Next arrival: 48
+Q1 contents: 21t 31f 41f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 48
+Next arrival: 50
+Q1 contents: 31f 41f
+Q2 contents: Empty!
+Q3 contents: 48t
+-----------------------------------
+Time: 49
+Next arrival: 50
+Q1 contents: 31t 41f
+Q2 contents: Empty!
+Q3 contents: 48t
+-----------------------------------
+Time: 50
+Next arrival: 51
+Q1 contents: 31t 41f 50f
+Q2 contents: Empty!
+Q3 contents: 48t
+-----------------------------------
+Time: 51
+Next arrival: 52
+Q1 contents: 31t 41f 50f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 52
+Next arrival: 53
+Q1 contents: 31t 41f 50f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 53
+Next arrival: 54
+Q1 contents: 31t 41f 50f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 54
+Next arrival: 56
+Q1 contents: 31t 41f 50f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 55
+Next arrival: 56
+Q1 contents: 31t 41f 50f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 56
+Next arrival: 57
+Q1 contents: 31t 41f 50f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 57
+Next arrival: 58
+Q1 contents: 41f 50f
+Q2 contents: 57t
+Q3 contents: Empty!
+-----------------------------------
+Time: 58
+Next arrival: 59
+Q1 contents: 41t 50f 58f
+Q2 contents: 57t
+Q3 contents: Empty!
+-----------------------------------
+Time: 59
+Next arrival: 61
+Q1 contents: 41t 50f 58f
+Q2 contents: 57t
+Q3 contents: Empty!
+-----------------------------------
+Time: 60
+Next arrival: 61
+Q1 contents: 41t 50f 58f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 61
+Next arrival: 62
+Q1 contents: 41t 50f 58f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 62
+Next arrival: 63
+Q1 contents: 41t 50f 58f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 63
+Next arrival: 65
+Q1 contents: 41t 50f 58f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 64
+Next arrival: 65
+Q1 contents: 41t 50f 58f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 65
+Next arrival: 67
+Q1 contents: 41t 50f 58f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 66
+Next arrival: 67
+Q1 contents: 41t 50f 58f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 67
+Next arrival: 68
+Q1 contents: 50f 58f
+Q2 contents: 67t
+Q3 contents: Empty!
+-----------------------------------
+Time: 68
+Next arrival: 69
+Q1 contents: 50t 58f 68f
+Q2 contents: 67t
+Q3 contents: Empty!
+-----------------------------------
+Time: 69
+Next arrival: 70
+Q1 contents: 50t 58f 68f
+Q2 contents: 67t
+Q3 contents: Empty!
+-----------------------------------
+Time: 70
+Next arrival: 72
+Q1 contents: 50t 58f 68f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 71
+Next arrival: 72
+Q1 contents: 50t 58f 68f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 72
+Next arrival: 73
+Q1 contents: 50t 58f 68f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 73
+Next arrival: 74
+Q1 contents: 50t 58f 68f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 74
+Next arrival: 76
+Q1 contents: 50t 58f 68f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 75
+Next arrival: 76
+Q1 contents: 50t 58f 68f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 76
+Next arrival: 78
+Q1 contents: 50t 58f 68f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 77
+Next arrival: 78
+Q1 contents: 58f 68f
+Q2 contents: Empty!
+Q3 contents: 77t
+-----------------------------------
+Time: 78
+Next arrival: 80
+Q1 contents: 58t 68f 78f
+Q2 contents: Empty!
+Q3 contents: 77t
+-----------------------------------
+Time: 79
+Next arrival: 80
+Q1 contents: 58t 68f 78f
+Q2 contents: Empty!
+Q3 contents: 77t
+-----------------------------------
+Time: 80
+Next arrival: 81
+Q1 contents: 58t 68f 78f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 81
+Next arrival: 83
+Q1 contents: 58t 68f 78f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 82
+Next arrival: 83
+Q1 contents: 58t 68f 78f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 83
+Next arrival: 84
+Q1 contents: 58t 68f 78f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 84
+Next arrival: 85
+Q1 contents: 68f 78f
+Q2 contents: Empty!
+Q3 contents: 84t
+-----------------------------------
+Time: 85
+Next arrival: 86
+Q1 contents: 68t 78f 85f
+Q2 contents: Empty!
+Q3 contents: 84t
+-----------------------------------
+Time: 86
+Next arrival: 87
+Q1 contents: 68t 78f 85f
+Q2 contents: Empty!
+Q3 contents: 84t
+-----------------------------------
+Time: 87
+Next arrival: 88
+Q1 contents: 68t 78f 85f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 88
+Next arrival: 90
+Q1 contents: 68t 78f 85f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 89
+Next arrival: 90
+Q1 contents: 68t 78f 85f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 90
+Next arrival: 92
+Q1 contents: 68t 78f 85f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 91
+Next arrival: 92
+Q1 contents: 68t 78f 85f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 92
+Next arrival: 93
+Q1 contents: 78f 85f
+Q2 contents: Empty!
+Q3 contents: 92t
+-----------------------------------
+Time: 93
+Next arrival: 94
+Q1 contents: 78t 85f 93f
+Q2 contents: Empty!
+Q3 contents: 92t
+-----------------------------------
+Time: 94
+Next arrival: 96
+Q1 contents: 78t 85f 93f
+Q2 contents: Empty!
+Q3 contents: 92t
+-----------------------------------
+Time: 95
+Next arrival: 96
+Q1 contents: 78t 85f 93f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 96
+Next arrival: 98
+Q1 contents: 78t 85f 93f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 97
+Next arrival: 98
+Q1 contents: 78t 85f 93f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 98
+Next arrival: 99
+Q1 contents: 78t 85f 93f
+Q2 contents: Empty!
+Q3 contents: Empty!
+-----------------------------------
+Time: 99
+Next arrival: 100
+Q1 contents: 85f 93f
+Q2 contents: 99t
+Q3 contents: Empty!
+-----------------------------------------------
+Contents from config.txt 
+-------- Q1 = 3 --------
+q1a = 1		q1b = 3
+q1p = 6		q1e = 10
+-------- Q2 = 3 --------
+q2p = 3	q2e = 4
+-------- Q3 = 3 --------
+q3p = 3	q3e = 4
+
+Time limit: 100
+Total number of packets: 65
+Queue1  drops: 52
+Queue2  drops: 0
+Queue3  drops: 0
+Total   drops: 52
+Average drops: 17
+drop percent: 0.8%
+-----------------------------------------------
+Queue1 min wait: 9
+Queue2 min wait: 3
+Queue3 min wait: 3
+-----------------------------------------------
+Queue1 max wait: 29
+Queue2 max wait: 3
+Queue3 max wait: 3
+-----------------------------------------------
+Queue1 avg wait: 23.3636
+Queue2 avg wait: 3
+Queue3 avg wait: 3
+-----------------------------------------------
+Queue1 wait StdDeviation: 5.51482
+Queue2 wait StdDeviation: 0
+Queue3 wait StdDeviation: 0

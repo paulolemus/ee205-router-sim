@@ -26,7 +26,7 @@ program, as well as our individual evaluation forms and other files.
 
 # Building main program
 
-1. make Router - builds the main router program
+1. make router - builds the main router program
 
 # Building GTest, building tests, and running tests
 
