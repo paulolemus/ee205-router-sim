@@ -68,14 +68,15 @@ tests/%.out: tests/%.cpp
 ##############################################################################
 
 ### CLEAN RULES
+.PHONY: clean-build clean-tests clean-deps clean
 
 clean-build:
-	rm router RPC
+	-rm router RPC
 
 clean-tests:
-	rm tests/*.out
+	-rm tests/*.out
 
 clean-deps:
-	rm -r libgtest.a gtest-all.o
+	-rm -r libgtest.a gtest-all.o
 
 clean: clean-tests clean-deps clean-build
