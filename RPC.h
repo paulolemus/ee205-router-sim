@@ -25,7 +25,7 @@ using namespace std;
         string name;
         Token(char ch) :kind(ch), value(0) { }
         Token(char ch, double val) :kind(ch), value(val) { }
-        Token(char ch, string n) :kind(ch), name(n) {} //jess- added this to fix error for line 73
+        Token(char ch, string n) :kind(ch), name(n) {} 
     };
 
     //not sure if this is needed, was the "stack / buffer-ish thing" in OG_RPC

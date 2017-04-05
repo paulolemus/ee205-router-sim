@@ -3,6 +3,12 @@
  * Date: 3/16/2017
  */
 
+/* This Queue class must be initialized with a capacity. 
+ * It holds queue elements in a circular array.
+ * It comes with several basic functions to get size, 
+ * capacity, head element, pop, push, and print.
+ */
+
 #ifndef EE_ARRAY_QUEUE_H_
 #define EE_ARRAY_QUEUE_H_
 

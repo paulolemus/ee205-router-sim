@@ -23,25 +23,31 @@ struct Config {
     int q2p, q2e, Q2; 
     int q3p, q3e, Q3;
 
+    // Config must be given a string to a file so that it can
+    // parse in all the configuration values
     Config(std::string configFile) : configFile(configFile) {
         readDataFile();
     }
 
+    // Returns the next time a packet should arrive
     int packetDelta() {
         int diff = q1b - q1a;
         return rand() % diff + q1a;
     }
 
+    // Returns the processing time for a packet of Q1
     int processTimeQ1() {
         int diff = q1e - q1p;
         return rand() % diff + q1p;
     }
 
+    // Returns the processing time for a packet of Q2
     int processTimeQ2() {
         int diff = q2e - q2p;
         return rand() % diff + q2p;
     }
 
+    // Returns the processing time for a packet of Q3
     int processTimeQ3() {
         int diff = q3e - q3p;
         return rand() % diff + q3p;
@@ -50,15 +56,13 @@ struct Config {
 
     // prints what's read from the config file
     void printConfig() {
-        std::cout << "Contents from config.txt " << std::endl;
 
-        std::cout << "-------- Q1 = " << Q1 << " --------"<< std::endl;
+        std::cout << "Contents from config.txt " << std::endl;
+        std::cout << "-------- Q1 = " << Q1 << " --------"  << std::endl;
         std::cout << "q1a = " << q1a << "\t\tq1b = " << q1b << std::endl;
         std::cout << "q1p = " << q1p << "\t\tq1e = " << q1e << std::endl;
-
         std::cout << "-------- Q2 = " << Q2 << " --------"<< std::endl;
         std::cout << "q2p = " << q2p << "\tq2e = " << q2e << std::endl;
-
         std::cout << "-------- Q3 = " << Q3 << " --------"<< std::endl;
         std::cout << "q3p = " << q3p << "\tq3e = " << q3e << std::endl;
         std::cout << std::endl;
@@ -68,6 +72,8 @@ struct Config {
     void readDataFile() {
 
         std::ifstream infile(configFile.c_str()); 
+
+        // Guard against invalid file name
         if (!infile.is_open()) {
             std::cout << "error in opening input file\n";
             exit(EXIT_FAILURE);
